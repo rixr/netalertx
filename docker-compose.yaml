@@ -1,13 +1,13 @@
 services:
+
   netalertx:
-    container_name: netalertx
     image: "ghcr.io/jokob-sk/netalertx:latest"
+    container_name: netalertx
     network_mode: "host"
-    restart: unless-stopped
     volumes:
-      - local_path/config:/app/config
-      - local_path/db:/app/db
-      - local_path/logs:/app/log
+      - ./config:/app/config
+      - ./db:/app/db
+      - ./logs:/app/log
       - type: tmpfs
         target: /app/api
     environment:
@@ -15,3 +15,4 @@ services:
 #      - PORT=20211
     ports:
       - "20211:20211/tcp"
+    restart: unless-stopped
