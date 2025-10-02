@@ -12,7 +12,7 @@ services:
         target: /app/api
     environment:
       - TZ=America/Tijuana
-#      - PORT=20211
+      - PORT=20211
     ports:
       - "20211:20211/tcp"
     restart: unless-stopped
